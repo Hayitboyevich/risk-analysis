@@ -1,0 +1,346 @@
+[
+    {
+        "id": 1,
+        "description": "Ўрганилаётган манзилдги шаҳарсозлик фаолияти объектини қуриш ёки реконструкция қилишни лойиҳалаштириш учун архитектура-режалаштириш топшириғи ишлаб чиқишга асос бўлган ҳужжатлар мавжудлиги: (Туман (шаҳар) қурилиш бўлимининг рухсатномаси, Аукцион баённомаси, Вазирлар Маҳкамасининг тегишли қарори, Қорақалпоғистон Республикаси Вазирлар Кенгаши раиси, вилоятлар ва Тошкент шаҳар ҳокимларининг қарорлари)",
+        "group": 32,
+        "priority": 5,
+        "created_at": "2025-03-06 13:43:47",
+        "updated_at": "2025-03-06 13:43:48",
+        "category": 1
+    },
+    {
+        "id": 2,
+        "description": "Архитектура-режалаштириш топшириғи мавжудлиги",
+        "group": 32,
+        "priority": 5,
+        "created_at": "2025-03-06 13:43:47",
+        "updated_at": "2025-03-06 13:43:48",
+        "category": 1
+    },
+    {
+        "id": 3,
+        "description": "Лойиҳа-смета ҳужжатлари келишилганлиги",
+        "group": 32,
+        "priority": 10,
+        "created_at": "2025-03-06 13:43:47",
+        "updated_at": "2025-03-06 13:43:48",
+        "category": 1
+    },
+    {
+        "id": 4,
+        "description": "Ўзбекистон Республикаси Вазирлар Маҳкамасининг 2022 йил 20 апрелдаги 200-сон қарори 4-иловасига асосан Лойиҳа-смета ҳужжатларини келишиш бўйича маъмурий регламентга амал қилинганлиги ишлаб чиқилганлиги бўйича маъмурий регламентга амал қилинганлиги.",
+        "group": 32,
+        "priority": 5,
+        "created_at": "2025-03-06 13:43:47",
+        "updated_at": "2025-03-06 13:43:48",
+        "category": 1
+    },
+    {
+        "id": 5,
+        "description": "Шаҳарсозлик ҳужжатларининг экспертиза йиғма ижобий хулосаси мавжудлиги",
+        "group": 32,
+        "priority": 25,
+        "created_at": "2025-03-06 13:43:47",
+        "updated_at": "2025-03-06 13:43:48",
+        "category": 1
+    },
+    {
+        "id": 6,
+        "description": "Қурилиш-монтаж ишларини бошлаш учун объектни рўйхатдан ўтказилганлиги",
+        "group": 32,
+        "priority": 50,
+        "created_at": "2025-03-06 13:43:47",
+        "updated_at": "2025-03-06 13:43:48",
+        "category": 1
+    },
+    {
+        "id": 15,
+        "description": "Ичимлик сувини ишлаб чиқариш ва етказиб беришда санитария-гигиена қоидалари ва нормалари ҳамда Ўзбекистон миллий стандартлари талабларига риоя этилмаслиги ҳамда иншоотларни сувни тозалаш ва зарарсизлантириш ускуналари билан таъминлаш талабларига амал қилинмаганлиги",
+        "group": 33,
+        "priority": 20,
+        "created_at": "2025-03-06 13:53:03",
+        "updated_at": "2025-03-06 13:53:05",
+        "category": 3
+    },
+    {
+        "id": 16,
+        "description": "Ичимлик ва оқова сув қувурлари ҳамда иншоотларидан самарали фойдаланиш, уларни соз ҳолатда сақлаш, тармоқларининг техник ҳолатини мунтазам равишда назорат қилиш, авариялар ва носозликларни ўз вақтида бартараф этиш талабларига риоя этилмаслиги",
+        "group": 33,
+        "priority": 10,
+        "created_at": "2025-03-06 13:53:03",
+        "updated_at": "2025-03-06 13:53:05",
+        "category": 3
+    },
+    {
+        "id": 17,
+        "description": "Сув объектларидан сув олишдан то истеъмолчиларга реализатсия қилишга қадар бўлган барча жараёнларда сувнинг технологик жиҳатдан сарфланиши ва йўқотилишининг йўл қўйиладиган нормаларига риоя этилмаганлиги",
+        "group": 33,
+        "priority": 10,
+        "created_at": "2025-03-06 13:53:03",
+        "updated_at": "2025-03-06 13:53:05",
+        "category": 3
+    },
+    {
+        "id": 18,
+        "description": "Ичимлик суви таъминоти ва оқова сувларни чиқариб юбориш бўйича хизматларнинг узлуксизлигини ва хавфсизлигини таъминлаш талабларига амал қилинмаганлиги",
+        "group": 33,
+        "priority": 10,
+        "created_at": "2025-03-06 13:53:03",
+        "updated_at": "2025-03-06 13:53:05",
+        "category": 3
+    },
+    {
+        "id": 19,
+        "description": "Давлат назорати органини ичимлик суви таъминоти ва оқова сувларни чиқариб юбориш тармоқларига ўзбошимча уланишнинг аниқланган ҳоллари тўғрисида хабардор қилиши талабига риоя этилмаганлиги",
+        "group": 33,
+        "priority": 15,
+        "created_at": "2025-03-06 13:53:03",
+        "updated_at": "2025-03-06 13:53:05",
+        "category": 3
+    },
+    {
+        "id": 20,
+        "description": "Ичимлик суви таъминоти ва оқова сувларни чиқариб юбориш хизматларини кўрсатишда ичимлик суви таъминоти ташкилотлари билан истеъмолчилар ўртасида шартномавий муносабатлар йўлга қўйилмаганлиги",
+        "group": 33,
+        "priority": 5,
+        "created_at": "2025-03-06 13:53:03",
+        "updated_at": "2025-03-06 13:53:05",
+        "category": 3
+    },
+    {
+        "id": 21,
+        "description": "Ер ости ичимлик сув қудуқларидан фойдаланишда белгиланган талабларга риоя этилмаганлиги қоидалари ва технологияси талабларига амал қилинмаганлиги",
+        "group": 33,
+        "priority": 10,
+        "created_at": "2025-03-06 13:53:03",
+        "updated_at": "2025-03-06 13:53:05",
+        "category": 3
+    },
+    {
+        "id": 22,
+        "description": "Сув таъминоти ташкилоти томонидан оқова сувларни қабул қилиш ва уларни қонунчилик талабларига мувофиқ тозалаш талабларининг бузилиши",
+        "group": 33,
+        "priority": 10,
+        "created_at": "2025-03-06 13:53:03",
+        "updated_at": "2025-03-06 13:53:05",
+        "category": 3
+    },
+    {
+        "id": 23,
+        "description": "Сув таъминоти ва оқова сувни чиқариш тизимларида кўрсатилган хизматлар ҳажмини ҳисобга олишда, шунингдек, аниқланган ноқонуний ҳолатлар учун қайта ҳисоб-китобларни амалга оширишда норматив ҳужжатлар талабларига амал қилинмаганлиги",
+        "group": 33,
+        "priority": 10,
+        "created_at": "2025-03-06 13:53:03",
+        "updated_at": "2025-03-06 13:53:05",
+        "category": 3
+    },
+    {
+        "id": 24,
+        "description": "Истеъмолчилар томонидан ичимлик сувидан оқилона ва тежамкорлик билан фойдаланиш талабига амал қилинмаганлиги, истеъмолчиларнинг фойдаланишга доир жавобгарлиги чегаралари доирасидаги аварияларни ўз вақтида бартараф этиш талабининг бузилиши",
+        "group": 33,
+        "priority": 20,
+        "created_at": "2025-03-06 13:56:22",
+        "updated_at": "2025-03-06 13:56:24",
+        "category": 4
+    },
+    {
+        "id": 25,
+        "description": "Оқова сувларни чиқариб юбориш тармоқларига меъёрдан ортиқ ифлосланган ишлаб чиқариш оқова сувларини оқизишда локал тозалаш иншоотлари мавжуд бўлиши талаби бузилганлиги ва белгиланган нормативларга қадар тозаланишини таъминланмаганлиги",
+        "group": 33,
+        "priority": 20,
+        "created_at": "2025-03-06 13:56:22",
+        "updated_at": "2025-03-06 13:56:24",
+        "category": 4
+    },
+    {
+        "id": 26,
+        "description": "Ичимлик суви таъминоти ва оқова сувларни чиқариб юбориш тармоқларига уланиш ва хизматлардан фойдаланишда тақдим этилган техник шарт талабларига риоя қилинмаганлиги",
+        "group": 33,
+        "priority": 15,
+        "created_at": "2025-03-06 13:56:22",
+        "updated_at": "2025-03-06 13:56:24",
+        "category": 4
+    },
+    {
+        "id": 27,
+        "description": "Истеъмолчиларнинг ичимлик суви таъминоти ва оқова сувларни чиқариб юбориш хизматларидан фойдаланишда шартнома шартларига амал қилинмаганлиги, тасарруфидаги сув ҳисоблагичлар, айланма линия зулфини, ёнғин зулфинлари, гидрантлардаги пломбаларнинг бутлиги ва сақланиши талабларининг бузилиши, шунингдек, ичимлик суви таъминоти ва оқова сувларни чиқариб юбориш тармоқларига ўзбошимчалик билан уланиш ҳолатлари мавжудлиги",
+        "group": 33,
+        "priority": 25,
+        "created_at": "2025-03-06 13:56:22",
+        "updated_at": "2025-03-06 13:56:24",
+        "category": 4
+    },
+    {
+        "id": 28,
+        "description": "Истеъмолчи ҳудудида жойлашган коммунал оқова сувларни чиқариш тармоқларига ёмғир ва эриган қор сувларининг оқизилиши",
+        "group": 33,
+        "priority": 20,
+        "created_at": "2025-03-06 13:56:22",
+        "updated_at": "2025-03-06 13:56:24",
+        "category": 4
+    },
+    {
+        "id": 29,
+        "description": "Ер ости сув қудуқларини бурғилашда Гидрогеологик хулоса олмаганлиги",
+        "group": 33,
+        "priority": 30,
+        "created_at": "2025-03-06 13:58:17",
+        "updated_at": "2025-03-06 13:58:19",
+        "category": 5
+    },
+    {
+        "id": 30,
+        "description": "Янги бурғиланган ер ости сув қудуқлари учун техник паспорт расмийлаштирилмаганлиги",
+        "group": 33,
+        "priority": 10,
+        "created_at": "2025-03-06 13:58:17",
+        "updated_at": "2025-03-06 13:58:19",
+        "category": 5
+    },
+    {
+        "id": 31,
+        "description": "Янги бурғиланган ер ости сув қудуғини цементация қилмаганлиги",
+        "group": 33,
+        "priority": 25,
+        "created_at": "2025-03-06 13:58:17",
+        "updated_at": "2025-03-06 13:58:19",
+        "category": 5
+    },
+    {
+        "id": 32,
+        "description": "Янги бурғиланган ер ости сув қудуғини лойиҳада кўрсатилган чуқурликда бурғиланмаганлиги",
+        "group": 33,
+        "priority": 20,
+        "created_at": "2025-03-06 13:58:17",
+        "updated_at": "2025-03-06 13:58:19",
+        "category": 5
+    },
+    {
+        "id": 33,
+        "description": "Ер ости сув қудуқларига ишлатилаётган материалларни сертификати мавжуд эмаслиги",
+        "group": 33,
+        "priority": 15,
+        "created_at": "2025-03-06 13:58:17",
+        "updated_at": "2025-03-06 13:58:19",
+        "category": 5
+    },
+    {
+        "id": 34,
+        "description": "Ko‘p kvartirali uylarning umumий foydalanishdagi joylarini o‘zboshimcha egallash hamda uyning tayanch ва to‘siq konstruksiyalarини buzganligi.",
+        "group": 31,
+        "priority": 80,
+        "created_at": "2025-07-28 11:43:06",
+        "updated_at": "2025-07-28 11:43:07",
+        "category": 2
+    },
+    {
+        "id": 35,
+        "description": "Ko‘p kvartirali uylarning umumiy foydalanishdagi joylarni saqlash va foydalanish qoidalariga rioya etilganligi",
+        "group": 31,
+        "priority": 10,
+        "created_at": "2025-07-28 11:43:06",
+        "updated_at": "2025-07-28 11:43:07",
+        "category": 2
+    },
+    {
+        "id": 36,
+        "description": "Ko‘p kvartirali uylarning umumий foydalanishdagi joylarning sanitar norma qoidalariga rioya etilganligi",
+        "group": 31,
+        "priority": 5,
+        "created_at": "2025-07-28 11:43:06",
+        "updated_at": "2025-07-28 11:43:07",
+        "category": 2
+    },
+    {
+        "id": 37,
+        "description": "Ko‘p kvartirali uylarning umumий muhandislik kommunikatsiyalarini o‘zgartirilganligi",
+        "group": 31,
+        "priority": 5,
+        "created_at": "2025-07-28 11:43:06",
+        "updated_at": "2025-07-28 11:43:07",
+        "category": 2
+    },
+    {
+        "id": 38,
+        "description": "Boshqarish organi hududda ko‘p kvartirali uylarda avariya vazиятларини bartaraf etadigan, 24 soat mobaynida faolият yuritadigan avariya-dispetcherlik xizmatini tashkil etganligi.",
+        "group": 31,
+        "priority": 80,
+        "created_at": "2025-07-28 11:43:06",
+        "updated_at": "2025-07-28 11:43:07",
+        "category": 6
+    },
+    {
+        "id": 39,
+        "description": "Ko‘p kvartirali uylarni boshqarish organi ko‘p kvartirali uyni billing tizimi orqali boshqarish faolиятini amalga oshirish qoidalarga rioya etilganligi.",
+        "group": 31,
+        "priority": 5,
+        "created_at": "2025-07-28 11:43:06",
+        "updated_at": "2025-07-28 11:43:07",
+        "category": 6
+    },
+    {
+        "id": 40,
+        "description": "Ko‘p kvartirali uylarda issiqlik ta’minotidan foydalanishda texnik jihatdan tartibga soluvchi va boshqa tegishli normativ-huquqiy hujjatlar talablariga rioya etilmaganligi (tegishli ruxsatnomalarsiz, o‘zboshimchalik bilan issiqlik tarmoqlariga ulanish, issiqlik ta’minoti tizimidan o‘zini o‘zi uzib qo‘yish, isitish tizimidagi issiqlik energiyasini oqava suv tizimlariga oqizib yuborish).",
+        "group": 31,
+        "priority": 5,
+        "created_at": "2025-07-28 11:43:06",
+        "updated_at": "2025-07-28 11:43:07",
+        "category": 6
+    },
+
+    {
+        "id": 41,
+        "description": "Boshqaruvchi faoliyatini amalga oshiruvchi jismoniy shaxs yakka tartibdagi tadbirkor sifatida belgilangan tartibda ro‘yxatdan o‘tishi shart va malaka (attestatsiya) sertifikatiga ega bo‘lishi.",
+        "group": 31,
+        "priority": 5,
+        "created_at": "2025-07-28 11:43:06",
+        "updated_at": "2025-07-28 11:43:07",
+        "category": 6
+    },
+    {
+        "id": 42,
+        "description": "Ko‘p kvartirali uyni boshqarish shartnomasida boshqacha qoida belgilanmagan bo‘lsa, boshqaruvchi tashkilot yoki boshqaruvchi oldingi yil uchun shartnomaning bajarilganligi to‘g‘risida har yili umumiy yig‘ilishda hisobot berilganligi",
+        "group": 31,
+        "priority": 5,
+        "created_at": "2025-07-28 11:43:06",
+        "updated_at": "2025-07-28 11:43:07",
+        "category": 6
+    },
+    {
+        "id": 43,
+        "description": "Ko‘p kvartirali uylarning yerto‘lasidan foydalanish tartibiga rioya etilganligi.",
+        "group": 31,
+        "priority": 80,
+        "created_at": "2025-07-28 11:43:06",
+        "updated_at": "2025-07-28 11:43:07",
+        "category": 7
+    },
+    {
+        "id": 44,
+        "description": "Ko‘p kvartirali uylarni umumiy foydalanishdagi joylarining ta’mirtalabligi.",
+        "group": 31,
+        "priority": 10,
+        "created_at": "2025-07-28 11:43:06",
+        "updated_at": "2025-07-28 11:43:07",
+        "category": 7
+    },
+    {
+        "id": 45,
+        "description": "Ko‘p kvartirali uylardagi lift uskunalariga xizmat ko‘rsatuvchi tashkilotlar tomonidan lift uskunalarining “Liftlar xavfsizligi to‘g‘risida”gi umumiy texnik reglament talablariga rioya etilganligi.",
+        "group": 31,
+        "priority": 5,
+        "created_at": "2025-07-28 11:43:06",
+        "updated_at": "2025-07-28 11:43:07",
+        "category": 7
+    },
+    {
+        "id": 46,
+        "description": "Yangi qurilgan (qurilishi tugallangan), foydalanishga qabul qilingan ko‘p kvartirali uylarda tizimli kamchilik va muammolar (texnik nuqsonlarning) mavjudligi.",
+        "group": 31,
+        "priority": 5,
+        "created_at": "2025-07-28 11:43:06",
+        "updated_at": "2025-07-28 11:43:07",
+        "category": 7
+    }
+]
+
