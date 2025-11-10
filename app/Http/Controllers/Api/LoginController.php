@@ -56,17 +56,10 @@ class LoginController extends BaseController
         if ($user) {
             Auth::login($user);
             $user = Auth::user();
-            if ($user->user_status_id != UserStatusEnum::ACTIVE) return $this->sendError('Kirish huquqi mavjud emas', code: 401);
+            if ($user->user_status_id != 1) return $this->sendError('Kirish huquqi mavjud emas', code: 401);
             $roleId = request('role_id');
             $role = Role::query()->find($roleId);
             $token = JWTAuth::claims(['role_id' => $roleId])->fromUser($user);
-            if (is_null($user->director_full_name) and preg_match('/^\d{9}$/', (int)$pinfl)) {
-                $get_company_info = $this->invoiceService->getCompanyInfo($pinfl);
-                if ($get_company_info) {
-                    $user_data = ['director_full_name' => $get_company_info['director'], 'pinfl' => $pinfl];
-                    $this->userRepository->createOrUpdate($user_data);
-                }
-            }
 
             $success['token'] = $token;
             $success['id'] = $user->id;
@@ -113,6 +106,9 @@ class LoginController extends BaseController
         }
     }
 
+
+
+
     public function checkUser(): JsonResponse
     {
         try {
@@ -133,33 +129,14 @@ class LoginController extends BaseController
             $resClient = Http::post($url);
             $data = json_decode($resClient->getBody(), true);
 
-
             $user = User::query()
                 ->where('pin', $data['pin'])
                 ->where('active', 1)
-                ->where('user_status_id', UserStatusEnum::ACTIVE->value)
+                ->where('user_status_id', 1)
                 ->first();
 
-            if (!$user) {
-                $inn = isset($data['pkcs_legal_tin']);
-                $person_data = [
-                    "name" => $data['first_name'],
-                    "surname" => $data['sur_name'],
-                    "middle_name" => $data['mid_name'],
-                    "pinfl" => $data['pin'],
-                    "login" => $inn ? $data['pkcs_legal_tin'] : $data['pport_no'],
-                    "password" => Hash::make($data['pin']),
-                    "active" => 1,
-                    "user_status_id" => 1,
-                ];
-                if ($inn) {
-                    $get_company_info = $this->invoiceService->getCompanyInfo($data['pkcs_legal_tin']);
-                    $person_data['organization_name'] = $get_company_info['shortName'];
-                    $person_data['director_full_name'] = $get_company_info['director'];
-                }
-                $new_user = $this->userRepository->createOrUpdate($person_data);
-                $this->userRepository->attachRole($new_user, UserRoleEnum::BUYURTMACHI->value);
-            }
+            if (!$user)  throw new \Exception('Foydalanuvchilarni mavjud emas');
+
             if ($user->active == 0) throw new ModelNotFoundException('Foydalanuvchi faol emas');
 
             if (request('app_id')) {
@@ -181,7 +158,7 @@ class LoginController extends BaseController
             return $this->sendSuccess($meta, 'Success');
 
         } catch (\Exception $exception) {
-            return $this->sendError($exception->getMessage(), $exception->getCode());
+            return $this->sendError('Xatolik aniqlandi', $exception->getMessage());
         }
     }
 
