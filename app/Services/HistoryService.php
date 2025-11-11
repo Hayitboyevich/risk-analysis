@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use App\Enums\LogType;
 use App\Helpers\IllegalObjectHistoryType;
 use App\Repositories\HistoryRepository;
 use App\Repositories\Interfaces\HistoryRepositoryInterface;

@@ -249,6 +249,7 @@ class IllegalObjectRepository implements IllegalObjectRepositoryInterface
                 'attach_user_id' => $user->id
             ]);
 
+
             if ($data->hasFile('images')) {
                 $images = collect($data->file('images'))->map(fn($image) => [
                     'url' => $image->store('documents/illegal_object', 'public')
@@ -263,8 +264,11 @@ class IllegalObjectRepository implements IllegalObjectRepositoryInterface
                 ->map(fn($question) => [
                     'question_id' => $question->id,
                     'object_id' => $object->id,
+                    'answer' => false
                 ]);
+
             IllegalObjectCheckList::query()->insert($checkLists->toArray());
+
 
             (new HistoryService('illegal_object_histories'))->createHistory(
                 guId: $object->id,
