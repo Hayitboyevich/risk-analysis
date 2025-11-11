@@ -11,7 +11,7 @@ Route::post('challenge', [LoginController::class, 'challenge']);
 Route::post('check-user', [LoginController::class, 'checkUser']);
 
 Route::group([
-    'middleware' => ['auth:api', 'refresh_token']
+    'middleware' => ['auth:api']
 ], function () {
     Route::post('/logout', [LoginController::class, 'logout']);
 
