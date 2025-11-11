@@ -18,9 +18,13 @@ return new class extends Migration
             $table->string('address', 400);
             $table->foreignId('region_id')->index()->nullable()->constrained();
             $table->foreignId('district_id')->index()->nullable()->constrained();
-            $table->integer('score');
+            $table->jsonb('score')->nullable();
             $table->integer('status')->default(0);
             $table->bigInteger('created_by')->index()->nullable();
+            $table->bigInteger('created_by_role')->index()->nullable();
+            $table->bigInteger('attach_user_id')->index()->nullable();
+            $table->string('inn');
+            $table->text('organization_name');
             $table->timestamps();
         });
     }

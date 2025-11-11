@@ -7,7 +7,7 @@ use App\Helpers\IllegalObjectStatuses;
 use App\Http\Requests\IllegalObjectUpdateRequest;
 use App\Http\Requests\UpdateCheckListRequest;
 use App\Models\IllegalObject;
-use App\Models\IllegalObjectCheckList;
+use App\Models\IllegalObjectChecklist;
 use App\Models\IllegalObjectCheckListHistory;
 use App\Models\IllegalObjectHistory;
 use App\Models\Image;
@@ -336,7 +336,7 @@ class IllegalObjectRepository implements IllegalObjectRepositoryInterface
 
     public function getQuestionList(int $id)
     {
-        return IllegalObjectCheckList::query()
+        return IllegalObjectChecklist::query()
             ->with(['question.type'])
             ->where('object_id', $id)
             ->get()
