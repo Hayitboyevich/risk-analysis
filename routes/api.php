@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\InformationController;
 use App\Http\Controllers\Api\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\IllegalObjectController;
@@ -27,5 +28,9 @@ Route::group([
         Route::post('update-checklist', [IllegalObjectController::class, 'updateCheckList']);
         Route::get('object-history/{id}', [IllegalObjectController::class, 'objectHistory']);
         Route::get('check-list-history/{id}', [IllegalObjectController::class, 'checklistHistory']);
+    });
+
+    Route::group(['prefix' => 'info'], function () {
+        Route::get('/organization', [InformationController::class, 'organization']);
     });
 });
