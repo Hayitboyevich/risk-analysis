@@ -330,7 +330,7 @@ class IllegalObjectRepository implements IllegalObjectRepositoryInterface
             'images' => $object->images->map(function ($image) {
                 return [
                     'id' => $image->id,
-                    'url' => Storage::disk('public')->url($image->image),
+                    'url' =>  url($image->url)
                 ];
             }),
             'created' => $object->created_at,
@@ -429,7 +429,7 @@ class IllegalObjectRepository implements IllegalObjectRepositoryInterface
                 'attach_user_id' =>$item->attach_user_id,
                 'images' => $item->images ? collect($item->images)->map(fn($image) => [
                     'id' => $image->id,
-                    'url' => Storage::disk('public')->url($image->image),
+                    'url' =>  url($image->url),
                 ]) : null,
                 'created_by' => $item->user ? collect($item->user)->only(['id', 'name', 'surname', 'middle_name']) : null,
                 'created_at' => $item->created_at,
