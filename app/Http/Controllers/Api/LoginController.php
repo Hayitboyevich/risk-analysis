@@ -133,7 +133,7 @@ class LoginController extends BaseController
             if (!$user)  throw new \Exception('Foydalanuvchilarni mavjud emas');
 
             if ($user->active == 0) throw new ModelNotFoundException('Foydalanuvchi faol emas');
-            
+
 
             $combinedData = $data['pin'] . ':' . $response['access_token'];
 
