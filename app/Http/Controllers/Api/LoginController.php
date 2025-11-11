@@ -85,7 +85,7 @@ class LoginController extends BaseController
             $roleId = request('role_id');
             $role = Role::query()->find($roleId);
             $token = JWTAuth::claims(['role_id' => $roleId])->fromUser($user);
-            
+
             $success['token'] = $token;
             $success['full_name'] = $user->full_name;
             $success['pinfl'] = $user->pin;
@@ -133,12 +133,7 @@ class LoginController extends BaseController
             if (!$user)  throw new \Exception('Foydalanuvchilarni mavjud emas');
 
             if ($user->active == 0) throw new ModelNotFoundException('Foydalanuvchi faol emas');
-
-            if (request('app_id')) {
-                $user->update([
-                    'notification_app_id' => request('app_id'),
-                ]);
-            }
+            
 
             $combinedData = $data['pin'] . ':' . $response['access_token'];
 
