@@ -17,7 +17,7 @@ class PassportInfoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'pin' => ['required'],
+            'pinfl' => ['required'],
             'birth_date' => ['required']
         ];
     }
