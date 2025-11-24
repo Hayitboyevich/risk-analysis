@@ -38,7 +38,7 @@ class UserController extends BaseController
     public function create(UserRequest $request): JsonResponse
     {
         try {
-            $existingUser = $this->service->findByPin($request->pin);
+            $existingUser = $this->service->findByPin($request->pinfl);
             if ($existingUser) {
                 $this->service->updateUser($existingUser, $request);
                 return $this->sendSuccess(new UserResourceCollection($existingUser), 'Foydalanuvchi tahrir qilindi.');

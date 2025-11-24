@@ -17,14 +17,14 @@ class UserResourceCollection extends ResourceCollection
             'region' => RegionResource::make($this->region) ?? null,
             'district' => DistrictResource::make($this->district) ?? null,
             'middle_name' => $this->middle_name,
-            'organization_name' => $this->organization_name,
-            'roles' => RoleResource::collection($this->roles),
+            'organization_name' => $this->organization_name ?? null,
+            'roles' => $this->roles ? RoleResource::collection($this->roles) : null,
             'phone' => $this->phone,
-            'pinfl' => $this->pinfl,
+            'pinfl' => $this->pin,
             'login' => $this->login,
             'status' => UserStatusResource::make($this->status),
             'image' => $this->image ? Storage::disk('public')->url($this->image) : null,
-            'files' => DocumentResource::collection($this->documents)
+            'files' => $this->documents ? DocumentResource::collection($this->documents) : null,
         ];
     }
 }
