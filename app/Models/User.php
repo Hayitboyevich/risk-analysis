@@ -76,4 +76,18 @@ class User extends Authenticatable implements JWTSubject
     {
         return isset($this->name) ? ucwords("{$this->surname} {$this->name} {$this->middle_name}") : null;
     }
+
+    public function hasPermissionForRole(string $permission_name, ?int $role_id = null): bool
+    {
+        if (!$role_id) {
+            return false;
+        }
+        $this->loadMissing('roles.permissions');
+        $role = $this->roles->firstWhere('id', $role_id);
+
+        if (!$role) {
+            return false;
+        }
+        return $role->permissions->contains('name', $permission_name);
+    }
 }

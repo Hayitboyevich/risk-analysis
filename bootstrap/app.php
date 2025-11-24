@@ -26,6 +26,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'verified' => \App\Http\Middleware\EnsureEmailIsVerified::class,
             'jwt' => \App\Http\Middleware\Authenticate::class,
             'role_check' => \App\Http\Middleware\CheckRoleMiddleware::class,
+            'permission' => \App\Http\Middleware\Permission::class,
         ]);
 
         //
