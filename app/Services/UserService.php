@@ -186,7 +186,6 @@ class UserService
                     ],
                     'verify' => false,
                 ]);
-
             $response = json_decode($resClient->getBody(), true);
 
             return $response['result']['data']['data'][0];
