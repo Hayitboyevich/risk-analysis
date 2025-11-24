@@ -77,7 +77,7 @@ class UserService
             $user = new User();
             $user->name = $request->name;
             $user->phone = $request->phone;
-            $user->pinfl = $request->pinfl;
+            $user->pin = $request->pinfl;
             $user->password = Hash::make($request->phone);
             $user->login = $request->phone;
             $user->user_status_id = $request->user_status_id;

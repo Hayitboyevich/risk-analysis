@@ -20,7 +20,7 @@ class UserRequest extends FormRequest
             "name" => "required|string",
             "phone" => "required|string|unique:users,phone",
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
-            "pin" => "required|integer|digits:14",
+            "pinfl" => "required|integer|digits:14",
             "user_status_id" => "required|exists:user_statuses,id",
             "surname" => "string",
             "middle_name" => "string",
