@@ -41,10 +41,10 @@ class UserController extends BaseController
             $existingUser = $this->service->findByPin($request->pinfl);
             if ($existingUser) {
                 $this->service->updateUser($existingUser, $request);
-                return $this->sendSuccess(new UserResourceCollection($existingUser), 'Foydalanuvchi tahrir qilindi.');
+                return $this->sendSuccess($existingUser, 'Foydalanuvchi tahrir qilindi.');
             }
             $user = $this->service->createNewUser($request);
-            return $this->sendSuccess(new UserResourceCollection($user), 'Foydalanuvchi muvaffaqiyatli yaratildi.');
+            return $this->sendSuccess($user, 'Foydalanuvchi muvaffaqiyatli yaratildi.');
 
         } catch (\Exception $exception) {
             return $this->sendError('Xatolik aniqlandi', $exception->getMessage());
