@@ -5,6 +5,7 @@ use App\Http\Controllers\Api\LoginController;
 use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\IllegalObjectController;
+use App\Http\Controllers\Api\RegionController;
 
 
 Route::post('/login', [LoginController::class, 'login']);
@@ -16,6 +17,9 @@ Route::group([
     'middleware' => ['jwt', 'role_check']
 ], function () {
     Route::post('/logout', [LoginController::class, 'logout']);
+
+    Route::get('regions', [RegionController::class, 'regions']);
+    Route::get('districts/{id}', [RegionController::class, 'districts']);
 
     Route::group(['prefix' => 'illegal'], function () {
         Route::get('objects', [IllegalObjectController::class, 'objectsList']);
@@ -30,6 +34,8 @@ Route::group([
         Route::get('object-history/{id}', [IllegalObjectController::class, 'objectHistory']);
         Route::get('check-list-history/{id}', [IllegalObjectController::class, 'checklistHistory']);
     });
+
+
 
     Route::group(['prefix' => 'users'], function () {
         Route::get('/', [UserController::class, 'index']);
