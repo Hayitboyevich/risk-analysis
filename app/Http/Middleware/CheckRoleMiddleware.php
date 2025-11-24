@@ -19,7 +19,7 @@ class CheckRoleMiddleware
             if (in_array($this->roleId, $this->user->roles->pluck('id')->toArray())) {
                 return $next($request);
             }else{
-                throw new UnauthenticatedException('Unauthenticated.', 401);
+                throw new UnauthenticatedException('Unauthenticated', 401);
             }
         }else{
             throw new UnauthenticatedException('Unauthenticated.', 401);

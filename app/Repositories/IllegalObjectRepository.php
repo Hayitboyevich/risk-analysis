@@ -370,6 +370,7 @@ class IllegalObjectRepository implements IllegalObjectRepositoryInterface
         ?array    $filters,
     )
     {
+
         return $this->illegalObject->query()
             ->with(['region', 'district', 'user', 'images'])
             ->join('regions', 'regions.id', '=', 'illegal_objects.region_id')
@@ -414,7 +415,7 @@ class IllegalObjectRepository implements IllegalObjectRepositoryInterface
                 'illegal_objects.created_at as created_at',
 
             ])
-            ->paginate(request('per_page'))
+            ->paginate(request('per_page', 15))
             ->through(fn($item) => [
                 'id' => $item->id,
                 'district' => $item->district ? collect($item->district)->only(['id', 'name_uz']) : null,

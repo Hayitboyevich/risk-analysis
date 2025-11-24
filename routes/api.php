@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\InformationController;
 use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\Api\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\IllegalObjectController;
 
@@ -12,7 +13,7 @@ Route::post('challenge', [LoginController::class, 'challenge']);
 Route::post('check-user', [LoginController::class, 'checkUser']);
 
 Route::group([
-    'middleware' => ['auth:api']
+    'middleware' => ['jwt', 'role_check']
 ], function () {
     Route::post('/logout', [LoginController::class, 'logout']);
 
@@ -30,7 +31,14 @@ Route::group([
         Route::get('check-list-history/{id}', [IllegalObjectController::class, 'checklistHistory']);
     });
 
+    Route::group(['prefix' => 'users'], function () {
+        Route::get('/', [UserController::class, 'index']);
+        Route::post('/create', [UserController::class, 'create']);
+        Route::post('/delete', [UserController::class, 'delete']);
+    });
+
     Route::group(['prefix' => 'info'], function () {
         Route::get('/organization', [InformationController::class, 'organization']);
+        Route::get('/passport', [InformationController::class, 'passportInfo']);
     });
 });
