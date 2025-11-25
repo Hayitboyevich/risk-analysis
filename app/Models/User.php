@@ -90,4 +90,16 @@ class User extends Authenticatable implements JWTSubject
         }
         return $role->permissions->contains('name', $permission_name);
     }
+
+    public function scopeSearchAll($query, $searchTerm)
+    {
+        $searchTerm = strtolower($searchTerm);
+        return $query->where(function ($query) use ($searchTerm) {
+            $query->whereRaw('LOWER(name) LIKE ?', ['%' . $searchTerm . '%'])
+                ->orWhereRaw('LOWER(middle_name) LIKE ?', ['%' . $searchTerm . '%'])
+                ->orWhereRaw('LOWER(surname) LIKE ?', ['%' . $searchTerm . '%'])
+                ->orWhereRaw("pin LIKE ?", ['%' . $searchTerm . '%'])
+                ->orWhereRaw("phone LIKE ?", ['%' . $searchTerm . '%']);
+        });
+    }
 }
