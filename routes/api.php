@@ -27,10 +27,10 @@ Route::group([
         Route::get('questions/{id}', [IllegalObjectController::class, 'questionList']);
         Route::get('object/{id}', [IllegalObjectController::class, 'getObject']);
         Route::get('districts', [IllegalObjectController::class, 'districtList']);
-        Route::post('create-object', [IllegalObjectController::class, 'createObject'])->middleware('permission:create_object');
-        Route::post('update-object', [IllegalObjectController::class, 'updateObject'])->middleware('permission:update_object');
+        Route::post('create-object', [IllegalObjectController::class, 'createObject']);/*->middleware('permission:create_object');*/
+        Route::post('update-object', [IllegalObjectController::class, 'updateObject']);/*->middleware('permission:update_object');*/
 //        Route::post('save-object/{id}', [IllegalObjectController::class, 'saveObject']);
-        Route::post('update-checklist', [IllegalObjectController::class, 'updateCheckList'])->middleware('permission:update_checklist');
+        Route::post('update-checklist', [IllegalObjectController::class, 'updateCheckList']);/*->middleware('permission:update_checklist');*/
         Route::get('object-history/{id}', [IllegalObjectController::class, 'objectHistory']);
         Route::get('check-list-history/{id}', [IllegalObjectController::class, 'checklistHistory']);
     });
@@ -39,8 +39,8 @@ Route::group([
 
     Route::group(['prefix' => 'users'], function () {
         Route::get('/', [UserController::class, 'index']);
-        Route::post('/create', [UserController::class, 'create'])->middleware('permission:create_users');
-        Route::post('/delete', [UserController::class, 'delete'])->middleware('permission:delete_users');
+        Route::post('/create', [UserController::class, 'create']);/*->middleware('permission:create_users');*/
+        Route::post('/delete', [UserController::class, 'delete']);/*->middleware('permission:delete_users');*/
     });
 
     Route::group(['prefix' => 'info'], function () {

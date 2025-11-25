@@ -26,8 +26,6 @@ class UserService
                 return $this->user->whereHas('roles', function ($query) {
                     $query->whereIn('role_id', [
                         UserRoleEnum::KVARTIRA_INSPECTOR->value,
-                        UserRoleEnum::GASN_INSPECTOR->value,
-                        UserRoleEnum::SUV_INSPECTOR->value
                     ]);
                 });
 
@@ -39,7 +37,6 @@ class UserService
                 });
 
             case UserRoleEnum::ICHIMLIK_SUVI_KADR->value:
-            case UserRoleEnum::RES_KUZATUVCHI->value:
                 return $this->user->whereHas('roles', function ($query) {
                     $query->whereIn('role_id', [
                         UserRoleEnum::SUV_INSPECTOR->value,
