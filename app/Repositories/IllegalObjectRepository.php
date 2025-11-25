@@ -370,7 +370,6 @@ class IllegalObjectRepository implements IllegalObjectRepositoryInterface
         ?array    $filters,
     )
     {
-
         return $this->illegalObject->query()
             ->with(['region', 'district', 'user', 'images'])
             ->join('regions', 'regions.id', '=', 'illegal_objects.region_id')

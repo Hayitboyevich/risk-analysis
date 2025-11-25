@@ -64,11 +64,12 @@ class IllegalObjectService
     public function getObjectList($user,$roleId, $filters)
     {
         switch ($roleId) {
-
             case UserRoleEnum::KVARTIRA_INSPECTOR->value:
             case UserRoleEnum::GASN_INSPECTOR->value:
             case UserRoleEnum::SUV_INSPECTOR->value:
                 return $this->getByUser($user, $roleId, $filters);
+            case UserRoleEnum::RES_KUZATUVCHI->value:
+                return $this->getAll($filters);
             default:
                 return null;
         }
