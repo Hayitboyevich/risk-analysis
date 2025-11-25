@@ -46,5 +46,6 @@ Route::group([
     Route::group(['prefix' => 'info'], function () {
         Route::get('/organization', [InformationController::class, 'organization']);
         Route::post('/passport', [InformationController::class, 'passportInfo']);
+        Route::get('/roles', [InformationController::class, 'roles']);
     });
 });

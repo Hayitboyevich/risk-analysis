@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Requests\PassportInfoRequest;
+use App\Http\Resources\RoleResource;
+use App\Models\Role;
 use App\Services\HistoryService;
 use App\Services\UserService;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Http;
 
 class InformationController extends BaseController
@@ -52,5 +55,17 @@ class InformationController extends BaseController
         } catch (\Exception $exception) {
             return $this->sendError('Xatolik aniqlandi', $exception->getMessage());
         }
+    }
+
+    public function roles(): JsonResponse
+    {
+        try {
+            $role = Role::query()->find($this->roleId);
+            $roles =  Role::query()->whereIn('id', $role->children)->paginate(request('per_page', 10));
+            return $this->sendSuccess(RoleResource::collection($roles), 'Roles', pagination($roles));
+        }catch (\Exception $exception){
+            return $this->sendError($exception->getMessage());
+        }
+
     }
 }
