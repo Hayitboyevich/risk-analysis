@@ -23,7 +23,7 @@ class UserService
     {
         switch ($roleId) {
             case UserRoleEnum::HTQ_KADR->value:
-                return $this->user->withTrashed()->whereNot('user_status_id', UserStatusEnum::RELEASED)->whereHas('roles', function ($query) {
+                return $this->user->whereHas('roles', function ($query) {
                     $query->whereIn('role_id', [
                         UserRoleEnum::KVARTIRA_INSPECTOR->value,
                         UserRoleEnum::GASN_INSPECTOR->value,
