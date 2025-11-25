@@ -22,10 +22,6 @@ class UserService
     public function getAllUsers($user, $roleId, $type = null)
     {
         switch ($roleId) {
-            case UserRoleEnum::EKOLOGIYA_RES_KADR->value:
-                return $this->user->withTrashed()->whereNot('user_status_id', UserStatusEnum::RELEASED)->whereHas('roles', function ($query) {
-                    $query->where('role_id', UserRoleEnum::EKOLOGIYA->value);
-                });
             case UserRoleEnum::HTQ_KADR->value:
                 return $this->user->withTrashed()->whereNot('user_status_id', UserStatusEnum::RELEASED)->whereHas('roles', function ($query) {
                     $query->whereIn('role_id', [
