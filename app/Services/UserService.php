@@ -31,6 +31,21 @@ class UserService
                     ]);
                 });
 
+            case UserRoleEnum::SHAHARSOZLIK_KADR->value:
+                return $this->user->whereHas('roles', function ($query) {
+                    $query->whereIn('role_id', [
+                        UserRoleEnum::GASN_INSPECTOR->value,
+                    ]);
+                });
+
+            case UserRoleEnum::ICHIMLIK_SUVI_KADR->value:
+            case UserRoleEnum::RES_KUZATUVCHI->value:
+                return $this->user->whereHas('roles', function ($query) {
+                    $query->whereIn('role_id', [
+                        UserRoleEnum::SUV_INSPECTOR->value,
+                    ]);
+                });
+
             default:
                 return $this->user->query()->whereRaw('1 = 0');
         }
