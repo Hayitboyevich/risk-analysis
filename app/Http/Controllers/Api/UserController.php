@@ -29,7 +29,11 @@ class UserController extends BaseController
         $type = request('type', null);
         $query = $this->service->getAllUsers($this->user, $this->roleId, $type);
         $filters = request()->only(['search', 'region_id', 'district_id', 'status', 'role_id']);
-        $users = $this->service->searchByUser($query, $filters)->paginate(request('per_page', 10));
+//        $users = $this->service->searchByUser($query, $filters)->paginate(request('per_page', 10));
+        $users = $this->service->searchByUser($query, $filters)->paginate()->through(function ($item) {
+            return (object) $item;
+        });
+
         return $this->sendSuccess(UserResourceCollection::collection($users), 'All Users', pagination($users));
     }
 
