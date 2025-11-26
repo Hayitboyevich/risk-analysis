@@ -16,7 +16,6 @@ class Authenticate
     {
         try {
         $user = JWTAuth::parseToken()->authenticate();
-
         if (!$user) {
             return new JsonResponse([
                 'success' => false,

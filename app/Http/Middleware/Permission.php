@@ -19,7 +19,6 @@ class Permission
         if (!$active_role) {
             abort(400, 'Foydalanuvchi role ko\'rsatilmagan!');
         }
-
         if (!$user->hasPermissionForRole($permission, $active_role)) {
             return response()->json([
                 'success' => false,
