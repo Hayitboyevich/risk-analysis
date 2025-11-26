@@ -377,6 +377,9 @@ class IllegalObjectRepository implements IllegalObjectRepositoryInterface
             ->when(isset($filters['region_id']), function ($q) use($filters){
                 $q->where('regions.id', $filters['region_id']);
             })
+            ->when(isset($filters['created_by']), function ($q) use($filters){
+                $q->where('created_by_role', $filters['created_by']);
+            })
             ->when(isset($filters['district_id']), function ($q) use ($filters) {
                 $q->where('districts.id', $filters['district_id']);
             })
