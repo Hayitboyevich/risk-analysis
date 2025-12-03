@@ -59,6 +59,7 @@ class UserController extends BaseController
         try {
             $user = $this->service->findById(request('id'));
             if (!$user) return $this->sendError('Foydalanuvchi topilmadi.');
+            $user->roles()->detach();
             $user->delete();
             return $this->sendSuccess(null, 'Success');
         }catch (\Exception $exception){
