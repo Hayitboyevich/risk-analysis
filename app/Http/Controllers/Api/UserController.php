@@ -53,4 +53,16 @@ class UserController extends BaseController
             return $this->sendError('Xatolik aniqlandi', $exception->getMessage());
         }
     }
+
+    public function delete(): JsonResponse
+    {
+        try {
+            $user = $this->service->findById(request('id'));
+            if (!$user) return $this->sendError('Foydalanuvchi topilmadi.');
+            $user->delete();
+            return $this->sendSuccess(null, 'Success');
+        }catch (\Exception $exception){
+            return $this->sendError('Xatolik aniqlandi', $exception->getMessage());
+        }
+    }
 }

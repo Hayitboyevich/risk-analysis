@@ -15,12 +15,13 @@ class SuperAdmin extends Command
     public function handle()
     {
         $user = User::query()->create([
-            'name' => 'Xavf',
-            'surname' => 'Taxlil',
-            'pin' => '5457545154545154545',
-            'phone' => '998771111111',
-            'password' => bcrypt('^fA7U4Z6==UA'),
-            'login' => 'xtq_admin',
+            'name' => 'Ali',
+            'surname' => 'Valiyev',
+            'pin' => '84848484548154',
+            'phone' => '998772222222',
+//            'password' => bcrypt('^fA7U4Z6==UA'),
+            'password' => bcrypt(')JF39i8aj4a6'),
+            'login' => 'xtq_admin2',
             'active' => 1,
             'user_status_id' => 1,
             'type' => 1,

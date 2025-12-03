@@ -78,6 +78,15 @@ class UserService
         return $user;
     }
 
+    public function findById($id)
+    {
+        $user = $this->user->query()->where('id', $id)->first();
+        if (!$user) {
+            return null;
+        }
+        return $user;
+    }
+
     public function createNewUser(UserRequest $request)
     {
         DB::beginTransaction();
