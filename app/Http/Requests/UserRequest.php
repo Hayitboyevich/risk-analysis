@@ -31,6 +31,7 @@ class UserRequest extends FormRequest
             'created_by' => "required|exists:users,id",
             'type' => "required|integer",
             'files' => "sometimes|array",
+            'files.*' => "sometimes|file|mimes:jpeg,png,jpg,svg, pdf, doc, docx",
         ];
     }
 
