@@ -30,8 +30,8 @@ class UserRequest extends FormRequest
             "role_ids.*" => "required|integer|exists:roles,id",
             'created_by' => "required|exists:users,id",
             'type' => "required|integer",
-            'files' => "sometimes|array",
-            'files.*' => "sometimes|file|mimes:jpeg,png,jpg,svg, pdf, doc, docx",
+            'files' => 'sometimes|array',
+            'files.*' => 'sometimes|file|mimes:zip,pdf',
         ];
     }
 
