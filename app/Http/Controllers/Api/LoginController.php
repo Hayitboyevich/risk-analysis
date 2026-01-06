@@ -6,6 +6,7 @@ use App\Http\Resources\DistrictResource;
 use App\Http\Resources\RegionResource;
 use App\Http\Resources\RoleResource;
 use App\Http\Resources\UserStatusResource;
+use App\Models\Document;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
@@ -157,5 +158,18 @@ class LoginController extends BaseController
         JWTAuth::invalidate(JWTAuth::getToken());
 
         return $this->sendSuccess(null, 'Logged out successfully.');
+    }
+
+    public function files($id)
+    {
+        try {
+            $document = Document::query()->findOrFail($id);
+            if (!Storage::disk('public')->exists($document->url)) {
+                return response()->json(['error' => 'Fayl topilmadi'], 404);
+            }
+            return Storage::disk('public')->download($document->url);
+        }catch (\Exception $exception){
+            return $this->sendError('Xatolik aniqlandi', $exception->getMessage());
+        }
     }
 }

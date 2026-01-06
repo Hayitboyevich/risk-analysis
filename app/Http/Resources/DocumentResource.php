@@ -17,7 +17,7 @@ class DocumentResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'url' => Storage::disk('public')->url($this->url),
+            'url' =>  route('download.files', $this->id),
         ];
     }
 }

@@ -6,12 +6,14 @@ use App\Enums\UserStatusEnum;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Http\Resources\UserResourceCollection;
+use App\Models\Document;
 use App\Models\UserRole;
 use App\Services\HistoryService;
 use App\Services\UserService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends BaseController
 {
@@ -66,4 +68,6 @@ class UserController extends BaseController
             return $this->sendError('Xatolik aniqlandi', $exception->getMessage());
         }
     }
+
+
 }

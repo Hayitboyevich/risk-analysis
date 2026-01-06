@@ -10,8 +10,9 @@ use App\Http\Controllers\Api\RegionController;
 
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/auth', [LoginController::class, 'auth']);
-Route::post('challenge', [LoginController::class, 'challenge']);
+//Route::post('challenge', [LoginController::class, 'challenge']);
 Route::post('check-user', [LoginController::class, 'checkUser']);
+Route::get('/files/{id}', [LoginController::class, 'files'])->name('download.files');
 
 Route::group([
     'middleware' => ['jwt', 'role_check', 'security'],
@@ -41,6 +42,7 @@ Route::group([
         Route::get('/', [UserController::class, 'index']);
         Route::post('/create', [UserController::class, 'create'])->middleware('permission:create_users');
         Route::post('/delete', [UserController::class, 'delete'])->middleware('permission:delete_users');
+
     });
 
     Route::group(['prefix' => 'info'], function () {
