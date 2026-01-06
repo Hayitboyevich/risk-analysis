@@ -14,7 +14,7 @@ Route::post('challenge', [LoginController::class, 'challenge']);
 Route::post('check-user', [LoginController::class, 'checkUser']);
 
 Route::group([
-    'middleware' => ['jwt', 'role_check']
+    'middleware' => ['jwt', 'role_check', 'security'],
 ], function () {
     Route::post('/logout', [LoginController::class, 'logout']);
 
