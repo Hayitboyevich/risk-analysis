@@ -7,6 +7,7 @@ return [
 
     'allowed_origins' => [
         'https://xtq.shaffofqurilish.uz',
+        'http://localhost:5173'
     ],
 
     'allowed_origins_patterns' => [],
