@@ -15,7 +15,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Tymon\JWTAuth\Facades\JWTAuth;
 
 class LoginController extends BaseController
@@ -80,29 +82,56 @@ class LoginController extends BaseController
 
     public function auth(): JsonResponse
     {
-        if (Auth::attempt(['login' => request('username'), 'password' => request('password')])) {
-            $user = Auth::user();
-            if ($user->user_status_id != 1) return $this->sendError('Kirish huquqi mavjud emas', code: 401);
-            $roleId = request('role_id');
-            $role = Role::query()->find($roleId);
-            $token = JWTAuth::claims(['role_id' => $roleId])->fromUser($user);
+        $key = $this->throttleKey();
 
-            $success['token'] = $token;
-            $success['full_name'] = $user->full_name;
-            $success['pinfl'] = $user->pin;
-            $success['role'] = $role ? new RoleResource($role) : null;
-            $success['status'] = new UserStatusResource($user->status);
-            $success['region'] = $user->region_id ? new RegionResource($user->region) : null;
-            $success['district'] = $user->district_id ? new DistrictResource($user->district) : null;
-            $success['image'] = $user->image ? Storage::disk('public')->url($user->image) : null;
+        if (RateLimiter::tooManyAttempts($key, 3)) {
+            $seconds = RateLimiter::availableIn($key);
 
-            return $this->sendSuccess($success, 'User logged in successfully.');
-        } else {
-            return $this->sendError('Unauthorised.', code: 401);
+            return $this->sendError(
+                "Juda ko‘p noto‘g‘ri urinish. {$seconds} soniyadan keyin qayta urinib ko‘ring.",
+                code: 429
+            );
         }
+
+        if (!Auth::attempt([
+            'login' => request('username'),
+            'password' => request('password')
+        ])) {
+
+            RateLimiter::hit($key, 300); // 5 minut
+
+            return $this->sendError('Login yoki parol noto‘g‘ri', code: 401);
+        }
+
+        RateLimiter::clear($key);
+
+        $user = Auth::user();
+
+        if ($user->user_status_id != 1) {
+            return $this->sendError('Kirish huquqi mavjud emas', code: 401);
+        }
+
+        $roleId = request('role_id');
+        $role = Role::query()->find($roleId);
+
+        $token = JWTAuth::claims(['role_id' => $roleId])->fromUser($user);
+
+        return $this->sendSuccess([
+            'token' => $token,
+            'full_name' => $user->full_name,
+            'pinfl' => $user->pin,
+            'role' => $role ? new RoleResource($role) : null,
+            'status' => new UserStatusResource($user->status),
+            'region' => $user->region_id ? new RegionResource($user->region) : null,
+            'district' => $user->district_id ? new DistrictResource($user->district) : null,
+            'image' => $user->image ? Storage::disk('public')->url($user->image) : null,
+        ], 'User logged in successfully.');
     }
 
-
+    private function throttleKey(): string
+    {
+        return Str::lower(request('username')) . '|' . request()->ip();
+    }
 
 
     public function checkUser(): JsonResponse
