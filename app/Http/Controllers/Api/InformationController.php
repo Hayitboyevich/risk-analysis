@@ -34,7 +34,7 @@ class InformationController extends BaseController
             }
             return $this->sendError('Xatolik yuz berdi');
         } catch (\Exception $exception) {
-            return $this->sendError("xatolik aniqlandi", $exception->getMessage());
+            return $this->sendError("xatolik aniqlandi", $exception->getCode());
         }
     }
 
@@ -53,7 +53,7 @@ class InformationController extends BaseController
             return $this->sendSuccess($meta, 'Passport Information Get Successfully');
 
         } catch (\Exception $exception) {
-            return $this->sendError('Xatolik aniqlandi', $exception->getMessage());
+            return $this->sendError('Xatolik aniqlandi', $exception->getCode());
         }
     }
 
@@ -64,7 +64,7 @@ class InformationController extends BaseController
             $roles =  Role::query()->whereIn('id', $role->children)->paginate(request('per_page', 10));
             return $this->sendSuccess(RoleResource::collection($roles), 'Roles', pagination($roles));
         }catch (\Exception $exception){
-            return $this->sendError($exception->getMessage());
+            return $this->sendError($exception->getCode());
         }
 
     }

@@ -208,7 +208,7 @@ class UserService
             return $response['result']['data']['data'][0];
 
         } catch (BadResponseException $ex) {
-            throw new \Exception($ex->getMessage());
+            throw new \Exception($ex->getCode());
         }
     }
 

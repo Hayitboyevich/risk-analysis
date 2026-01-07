@@ -178,7 +178,7 @@ class LoginController extends BaseController
             return $this->sendSuccess($meta, 'Success');
 
         } catch (\Exception $exception) {
-            return $this->sendError('Xatolik aniqlandi', $exception->getMessage());
+            return $this->sendError('Xatolik aniqlandi', $exception->getCode());
         }
     }
 
@@ -198,7 +198,7 @@ class LoginController extends BaseController
             }
             return Storage::disk('public')->download($document->url);
         }catch (\Exception $exception){
-            return $this->sendError('Xatolik aniqlandi', $exception->getMessage());
+            return $this->sendError('Xatolik aniqlandi', $exception->getCode());
         }
     }
 }

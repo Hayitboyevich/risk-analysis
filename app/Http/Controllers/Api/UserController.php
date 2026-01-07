@@ -52,7 +52,7 @@ class UserController extends BaseController
             return $this->sendSuccess($user, 'Foydalanuvchi muvaffaqiyatli yaratildi.');
 
         } catch (\Exception $exception) {
-            return $this->sendError('Xatolik aniqlandi', $exception->getMessage());
+            return $this->sendError('Xatolik aniqlandi', $exception->getCode());
         }
     }
 
@@ -65,7 +65,7 @@ class UserController extends BaseController
             $user->delete();
             return $this->sendSuccess(null, 'Success');
         }catch (\Exception $exception){
-            return $this->sendError('Xatolik aniqlandi', $exception->getMessage());
+            return $this->sendError('Xatolik aniqlandi', $exception->getCode());
         }
     }
 

@@ -22,7 +22,7 @@ class RegionController extends BaseController
             $region = Region::query()->findOrFail($id);
             return $this->sendSuccess(DistrictResource::collection($region->districts), 'All Districts');
         }catch (\Exception $exception) {
-            return $this->sendError('Xatolik aniqlandi', $exception->getMessage());
+            return $this->sendError('Xatolik aniqlandi', $exception->getCode());
         }
     }
 }
