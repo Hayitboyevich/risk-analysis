@@ -36,8 +36,6 @@ Route::group([
         Route::get('check-list-history/{id}', [IllegalObjectController::class, 'checklistHistory']);
     });
 
-
-
     Route::group(['prefix' => 'users'], function () {
         Route::get('/', [UserController::class, 'index']);
         Route::post('/create', [UserController::class, 'create'])->middleware('permission:create_users');

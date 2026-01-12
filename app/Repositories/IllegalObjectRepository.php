@@ -74,8 +74,8 @@ class IllegalObjectRepository implements IllegalObjectRepositoryInterface
                     $checkListHistory->documents()->createMany($documents);
                 }
             }
-
             $attachUserId = $this->attachUser($user, $object);
+            dd($attachUserId);
             $object->update([
                 'status' => $allAnswersTrue ? IllegalObjectStatuses::CONFIRMED : IllegalObjectStatuses::NEW,
                 'score' => $request->object['score'],
@@ -444,7 +444,6 @@ class IllegalObjectRepository implements IllegalObjectRepositoryInterface
             ->where('region_id', $user->region_id)
             ->whereHas('roles', fn($q) => $q->where('roles.id', 31))
             ->pluck('id');
-
 
         if ($users->count() === 1) {
             $newAttachUserId = $users->first();
