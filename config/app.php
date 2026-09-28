@@ -107,4 +107,11 @@ return [
         "password" => env('BANK_PASSWORD', 'EkN`9?@{3v0j'),
     ],
 
+    'shaffofId' => [
+        'url' => 'https://id.shaffofqurilish.uz',
+        'client_id' => '01a0cdae-143d-7246-9b11-7dcabb94c8dd',
+        'client_secret' => '7P7tJ77DpNIrXZyUbra4DBf7vXirO5CZtQFzqEqR',
+        'redirect_url' => 'https://xtq.shaffofqurilish.uz/login',
+    ],
+
 ];

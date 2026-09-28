@@ -9,6 +9,8 @@ use App\Http\Resources\UserStatusResource;
 use App\Models\Document;
 use App\Models\Role;
 use App\Models\User;
+use App\Services\ShaffofIdService;
+use App\Services\UserService;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -22,6 +24,15 @@ use Tymon\JWTAuth\Facades\JWTAuth;
 
 class LoginController extends BaseController
 {
+    public function __construct(
+        protected ShaffofIdService $shaffofIdService,
+        protected UserService $userService,
+
+    )
+    {
+        parent::__construct();
+    }
+
     public function login(Request $request): JsonResponse
     {
         if ($request->has('pkcs7')) {
@@ -178,6 +189,22 @@ class LoginController extends BaseController
             return $this->sendSuccess($meta, 'Success');
 
         } catch (\Exception $exception) {
+            return $this->sendError('Xatolik aniqlandi', $exception->getMessage());
+        }
+    }
+
+    public function getShaffofId(): JsonResponse
+    {
+        try {
+            $code = request('code');
+            $codeVerifier = request('code_verifier');
+
+            $data = $this->shaffofIdService->handleCallback($code, $codeVerifier);
+            if (empty($data)) return $this->sendError('Malumot topilmadi');
+
+            return $this->sendSuccess($data, 'Success get data');
+
+        }catch (\Exception $exception){
             return $this->sendError('Xatolik aniqlandi', $exception->getMessage());
         }
     }

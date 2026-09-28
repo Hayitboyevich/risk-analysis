@@ -11,6 +11,7 @@ use App\Http\Controllers\Api\RegionController;
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/auth', [LoginController::class, 'auth']);
 //Route::post('challenge', [LoginController::class, 'challenge']);
+Route::post('shaffofid', [LoginController::class, 'getShaffofId']);
 Route::post('check-user', [LoginController::class, 'checkUser']);
 Route::get('/files/{id}', [LoginController::class, 'files'])->name('download.files');
 
