@@ -74,9 +74,7 @@ class ShaffofIdService
 
 
         $user = User::query()
-            ->where('pinfl', $pin)
-            ->where('user_status_id', UserStatusEnum::ACTIVE->value)
-            ->where('active', 1)
+            ->where('pin', $pin)
             ->first();
 
         if (!$user) throw new ModelNotFoundException('Foydalanuvchi topilmadi');
