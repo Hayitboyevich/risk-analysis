@@ -6,7 +6,7 @@ return [
     'allowed_methods' => ['*'],
 
     'allowed_origins' => [
-        'https://xtq.shaffofqurilish.uz',
+        'https://xtq.shq.uz',
         'http://localhost:5173'
     ],
 
